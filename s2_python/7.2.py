@@ -26,5 +26,7 @@ for i in range(strRange):
 		continue
 	else:
 		strNew.append(strRaw[i])
-		
-print(f'Строка без лишних пробелов: {''.join(strNew)}')
+
+strNewJ = ''.join(strNew)
+print(f'Строка без лишних пробелов: {strNewJ}')
+
