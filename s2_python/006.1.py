@@ -14,11 +14,11 @@ cntZero = 0
 
 for i in range(numberN):
   try:
-  	k = int(input('Введите число #%s: ' %(i + 1)))
+    k = int(input('Введите число #%s: ' %(i + 1)))
   except ValueError:
-  	print('Надо ввести целое число')
-  	exit()
+    print('Надо ввести целое число')
+    exit()
   if k == 0:
-  	cntZero += 1
-  	
+    cntZero += 1
+    
 print('Количество чисел, равных нулю: %s' %(cntZero))

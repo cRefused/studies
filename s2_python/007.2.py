@@ -23,9 +23,9 @@ if strRange > maxLenStr:
 # проходимся по строке, пропуская идущие подряд пробелы
 for i in range(strRange):
   if (i+1 < strRange) and strRaw[i] == ' ' and strRaw[i+1] == ' ':
-  	continue
+    continue
   else:
-  	strNew.append(strRaw[i])
+    strNew.append(strRaw[i])
 
 strNewJ = ''.join(strNew)
 print(f'Строка без лишних пробелов: {strNewJ}')

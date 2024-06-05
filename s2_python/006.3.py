@@ -22,7 +22,7 @@ listEvenNumbers = []
 # проверяем диапазон, добавляем нужное в список
 for i in range(a, b + 1):
   if i % 2 == 0:
-  	listEvenNumbers.append(str(i))
+    listEvenNumbers.append(str(i))
 
 # строка чисел через пробел
 strEvenNumbers = ' '.join(listEvenNumbers)

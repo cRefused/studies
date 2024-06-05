@@ -107,9 +107,9 @@ msgPetNotExist = 'Питомец с таким ID не зарегистриро�
 # ф-ция добавления записи о питомце
 def addPet():
   if len(pets) == 0:
-  	id = 1
+    id = 1
   else:
-  	id = (deque(pets, maxlen=1)[0]) + 1
+    id = (deque(pets, maxlen=1)[0]) + 1
   print('Добавление записи о питомце')
   pName = input('Имя питомца: ')
   vid = input('Вид питомца: ')
@@ -130,25 +130,25 @@ def updatePet():
   print('Редактирование записи о питомце')
   id = int(input('Введите ID питомца: '))
   if getPet(id):
-  	pName = input('Имя питомца: ')
-  	vid = input('Вид питомца: ')
-  	age = int(input('Возраст питомца: '))
-  	name = input('Имя владельца: ')
-  	pets[id] = {pName:{'vid':vid,'age':age,'name':name}}
-  	print('Информация о питомце обновлена:')
-  	getPetsList(id)
+    pName = input('Имя питомца: ')
+    vid = input('Вид питомца: ')
+    age = int(input('Возраст питомца: '))
+    name = input('Имя владельца: ')
+    pets[id] = {pName:{'vid':vid,'age':age,'name':name}}
+    print('Информация о питомце обновлена:')
+    getPetsList(id)
   else:
-  	print(msgPetNotExist)
-  	
+    print(msgPetNotExist)
+    
 # ф-ция удаления записи о питомце
 def deletePet():
   print('Удаление записи о питомце')
   id = int(input('Введите ID питомца: '))
   if getPet(id):
-  	pets.pop(id)
-  	print(f'ID {id}: Информация о питомце удалена')
+    pets.pop(id)
+    print(f'ID {id}: Информация о питомце удалена')
   else:
-  	print(msgPetNotExist)
+    print(msgPetNotExist)
 
 
 # ф-ция проверки id
@@ -158,18 +158,18 @@ def getPet(id):
 # запрашиваем информацию о всех питомцах или об одном
 def getPetsList(id):
   if id == 0:
-  	for p in pets:
-  		getPetsInfo(p)
+    for p in pets:
+      getPetsInfo(p)
   elif getPet(id):
-  	getPetsInfo(id)
+    getPetsInfo(id)
   else:
-  	print(msgPetNotExist)
+    print(msgPetNotExist)
 
-# получение информации о питомце и вывод на экран  		
+# получение информации о питомце и вывод на экран      
 def getPetsInfo(id):
   for sp in pets[id]:
-  	s = getSuffix(pets[id][sp]['age'])
-  	print(f"ID {id}: Это {pets[id][sp]['vid']} по кличке \"{sp}\". Возраст питомца: {pets[id][sp]['age']} {s}. Имя владельца: {pets[id][sp]['name']}")
+    s = getSuffix(pets[id][sp]['age'])
+    print(f"ID {id}: Это {pets[id][sp]['vid']} по кличке \"{sp}\". Возраст питомца: {pets[id][sp]['age']} {s}. Имя владельца: {pets[id][sp]['name']}")
 
 # ф-ция склонения года
 def getSuffix(age):
@@ -178,13 +178,13 @@ def getSuffix(age):
 # костыль для диапазона 10-20
   petAgeY10 = int(str(age)[(len(str(age))-2)::])
   if (10 <= age <= 20) or (10 <= petAgeY10 <= 20):
-  	year = 'лет'
+    year = 'лет'
   elif petAgeY == 1:
-  	year = 'год'
+    year = 'год'
   elif 2 <= petAgeY <= 4:
-  	year = 'года'
+    year = 'года'
   else:
-  	year = 'лет'
+    year = 'лет'
   return year
 
 # старт
@@ -192,18 +192,18 @@ def start():
   cmd = ''
   print()
   print('\n--------------------------------')
-  print('   	БАЗА ДАННЫХ ПИТОМЦЕВ   ')
+  print('     БАЗА ДАННЫХ ПИТОМЦЕВ   ')
   print('--------------------------------\n')
   while cmd != 'q':
-  	cmd = input('Введите команду ((a)dd | (r)ead | (u)pdate | (d)elete | (q)uit): ')
-  	if cmd == 'a':
-  		addPet()
-  	elif cmd == 'r':
-  		readPet()
-  	elif cmd == 'u':
-  		updatePet()
-  	elif cmd == 'd':
-  		deletePet()
+    cmd = input('Введите команду ((a)dd | (r)ead | (u)pdate | (d)elete | (q)uit): ')
+    if cmd == 'a':
+      addPet()
+    elif cmd == 'r':
+      readPet()
+    elif cmd == 'u':
+      updatePet()
+    elif cmd == 'd':
+      deletePet()
 
 start()
 

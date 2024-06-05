@@ -20,8 +20,8 @@ if (minN > n) or (n > maxN):
 for i in range(n):
   k = int(input(f'Введите число #{i+1}, не превышающее {maxSubN} по модулю: '))
   if (-maxSubN > k) or (k > maxSubN):
-  	print(f'{k} превышает {maxSubN} по модулю, пропускаем')
+    print(f'{k} превышает {maxSubN} по модулю, пропускаем')
   else:
-  	subN.add(k)
-  	
+    subN.add(k)
+    
 print(f'Различающихся чисел: {len(subN)}')

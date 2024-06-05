@@ -41,13 +41,13 @@ countWherrys = 0
 for i in range(bodies):
   m = int(input(f'Введите вес рыбака #{i+1}: '))
   if m > carrying:
-  	print('Этот слишком жирный, остается на берегу')
-  	continue
+    print('Этот слишком жирный, остается на берегу')
+    continue
   elif m <= 0:
-  	print('Это фейковый рыбак, вычеркиваем')
-  	continue
+    print('Это фейковый рыбак, вычеркиваем')
+    continue
   else:
-  	massBody.append(m)
+    massBody.append(m)
 
 # сортируем рыбаков
 list.sort(massBody)
@@ -61,22 +61,22 @@ while massBody:
   iMassBody = (len(massBody) - 1)
   # рассаживаем рыбаков в лодки, компонуя жирных с дрыщами
   if len(massBody) > 1:
-  	# если оба влазят, отправляем
-  	if massBody[iMassBody] + massBody[0] <= carrying:
-  		print(massBody[iMassBody], massBody[0])
-  		massBody.pop(iMassBody)
-  		massBody.pop(0)
-  		countWherrys += 1
-  	# иначе отправляем жирного
-  	else:
-  		print(massBody[iMassBody])
-  		massBody.pop(iMassBody)
-  		countWherrys += 1
+    # если оба влазят, отправляем
+    if massBody[iMassBody] + massBody[0] <= carrying:
+      print(massBody[iMassBody], massBody[0])
+      massBody.pop(iMassBody)
+      massBody.pop(0)
+      countWherrys += 1
+    # иначе отправляем жирного
+    else:
+      print(massBody[iMassBody])
+      massBody.pop(iMassBody)
+      countWherrys += 1
   # отправляем последнего, если остался
   else:
-  	print(massBody[iMassBody])
-  	massBody.pop(iMassBody)
-  	countWherrys += 1
+    print(massBody[iMassBody])
+    massBody.pop(iMassBody)
+    countWherrys += 1
 
 print('-----------------------------------')
 print(f'Количество лодок, необходимое для перевозки рыбаков (по {maxBodyWherry} в лодке и с грузоподьемностью {carrying}): {countWherrys}')

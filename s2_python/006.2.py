@@ -32,8 +32,8 @@ for i in range(1, numberX + 1):
   print(f'Считаем... {p}% ', end='\r', flush=True)
   # собсна считаем
   if numberX % i == 0:
-  	cntNumberX += 1
-  	listNumberX.append(str(i))
+    cntNumberX += 1
+    listNumberX.append(str(i))
 
 print('Количество натуральных делителей числа %s по заданым условиям: %s' %(numberX, cntNumberX))
 print(f"Список натуральных делителей: {' '.join(listNumberX)}")

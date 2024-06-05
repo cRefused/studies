@@ -22,18 +22,18 @@ maxM = 10e+5
 # запрашиваем ввод чисел, проверяем на соответствие условиям
 for i in range(quantityQuery):
   try:
-  	n = int(input(f'Введите целое число #{i} (1 ≤ N ≤ 10000): '))
+    n = int(input(f'Введите целое число #{i} (1 ≤ N ≤ 10000): '))
   except ValueError:
-  	print(f'Это не целое число')
-  	continue
+    print(f'Это не целое число')
+    continue
   # плюсуем по модулю
   m += abs(n)
   # если сумма меньше, добавляем в список, иначе ругаемся и пропускаем это число
   if m <= maxM:
-  	arrN.append(n)
+    arrN.append(n)
   else:
-  	print(f'Сумма чисел по модулю превышает {maxM}, пропускаем число [{n}]')
-  	m -= abs(n)
-  	continue
-  	
+    print(f'Сумма чисел по модулю превышает {maxM}, пропускаем число [{n}]')
+    m -= abs(n)
+    continue
+    
 print(f'Введенные числа в обратном порядке: {list(reversed(arrN))}')
