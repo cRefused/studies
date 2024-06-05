@@ -6,23 +6,23 @@
 
 # просим ввести числа с небольшой проверкой на валидность
 try:
-	a = int(input('Введите целое число A: '))
-	b = int(input('Введите целое число B: '))
+  a = int(input('Введите целое число A: '))
+  b = int(input('Введите целое число B: '))
 except ValueError:
-	print('Это не целое число')
-	exit()
-	
+  print('Это не целое число')
+  exit()
+  
 if a > b:
-	print('B должно быть больше или равно A')
-	exit()
+  print('B должно быть больше или равно A')
+  exit()
 
 # список, который заполним подходящими числами
 listEvenNumbers = []
 
 # проверяем диапазон, добавляем нужное в список
 for i in range(a, b + 1):
-	if i % 2 == 0:
-		listEvenNumbers.append(str(i))
+  if i % 2 == 0:
+  	listEvenNumbers.append(str(i))
 
 # строка чисел через пробел
 strEvenNumbers = ' '.join(listEvenNumbers)

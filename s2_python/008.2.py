@@ -9,21 +9,21 @@
 
 # небольшая проверка на валидность для N
 try:
-	qNumbers = int(input('Введите целое число (1 ≤ N ≤ 100000): '))
+  qNumbers = int(input('Введите целое число (1 ≤ N ≤ 100000): '))
 except ValueError:
-	print('Это не целое число')
-	exit()
+  print('Это не целое число')
+  exit()
 
 if not 1 <= qNumbers <= 1000000:
-	print(f'Не соответствует условиям (1 ≤ N ≤ 100000)')
-	exit()
-	
+  print(f'Не соответствует условиям (1 ≤ N ≤ 100000)')
+  exit()
+  
 # небольшая проверка на валидность для Ai
 try:
-	arrN = list(map(int, input('Введите числа через пробел (1 ≤ Ai ≤ 10e9): ').split()))
+  arrN = list(map(int, input('Введите числа через пробел (1 ≤ Ai ≤ 10e9): ').split()))
 except ValueError:
-	print('Надо вводить целые числа')
-	exit()
+  print('Надо вводить целые числа')
+  exit()
 
 arrRevN = list(reversed(arrN))
 

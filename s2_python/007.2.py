@@ -17,15 +17,15 @@ strNew = []
 
 # хоть какая-то проверка на валидность
 if strRange > maxLenStr:
-	print(f'Строка превышает {maxLenStr} знаков')
-	exit()
+  print(f'Строка превышает {maxLenStr} знаков')
+  exit()
 
 # проходимся по строке, пропуская идущие подряд пробелы
 for i in range(strRange):
-	if (i+1 < strRange) and strRaw[i] == ' ' and strRaw[i+1] == ' ':
-		continue
-	else:
-		strNew.append(strRaw[i])
+  if (i+1 < strRange) and strRaw[i] == ' ' and strRaw[i+1] == ' ':
+  	continue
+  else:
+  	strNew.append(strRaw[i])
 
 strNewJ = ''.join(strNew)
 print(f'Строка без лишних пробелов: {strNewJ}')

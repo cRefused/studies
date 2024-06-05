@@ -16,17 +16,17 @@ strNumber = input('Введите пятизначное число: ')
 arrNumber = []
 
 if len(strNumber) != 5:
-	print('Это не пятизначное число')
-	exit()
+  print('Это не пятизначное число')
+  exit()
 try:
-	int(strNumber)
+  int(strNumber)
 except ValueError:
-	print('Некорректные данные: [%s]' %(strNumber))
-	exit()
-	
+  print('Некорректные данные: [%s]' %(strNumber))
+  exit()
+  
 for i in strNumber:
-	i = int(i)
-	arrNumber.append(i)
+  i = int(i)
+  arrNumber.append(i)
 
 result = ((arrNumber[3] ** arrNumber[4]) * 2) / (arrNumber[0] - arrNumber[1])
 

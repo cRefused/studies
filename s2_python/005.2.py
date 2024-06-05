@@ -23,26 +23,26 @@ cntStrWordNotG = 0
 
 # ищем совпадения и заполняем списки гласных и согласных
 for k in strWord:
-	if k in listLetterG:
-		if not k in strWordG:
-			strWordG[k] = []
-		strWordG[k].append(k)
-	else:
-		if not k in strWordNotG:
-			strWordNotG[k] = []
-		strWordNotG[k].append(k)
+  if k in listLetterG:
+  	if not k in strWordG:
+  		strWordG[k] = []
+  	strWordG[k].append(k)
+  else:
+  	if not k in strWordNotG:
+  		strWordNotG[k] = []
+  	strWordNotG[k].append(k)
 
 # считаем количество гласных, если гласной нет, то проставляем False
 for i in listLetterG:
-	if i in strWordG:
-		strWordG[i] = len(strWordG[i])
-		cntStrWordG += strWordG[i]
-	else:
-		strWordG[i] = False
+  if i in strWordG:
+  	strWordG[i] = len(strWordG[i])
+  	cntStrWordG += strWordG[i]
+  else:
+  	strWordG[i] = False
 
 # считаем количество согласных
 for i in strWordNotG:
-	cntStrWordNotG += len(strWordNotG[i])
+  cntStrWordNotG += len(strWordNotG[i])
 
 
 print('Количество гласных букв: %s' %(cntStrWordG))

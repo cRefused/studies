@@ -22,41 +22,41 @@ msgBigFactorial = 'Результат слишком большой (%s%s зна
 
 # стартуем
 def fnStart():
-	try:
-		n = int(input('Введите натуральное целое число: '))
-	except:
-		print('Некорректные данные')
-		return False
-	if n <= 0:
-		print('Некорректные данные')
-		return False
-	# отдаем число считалке факториалов
-	fnGenFactorial(n)
+  try:
+  	n = int(input('Введите натуральное целое число: '))
+  except:
+  	print('Некорректные данные')
+  	return False
+  if n <= 0:
+  	print('Некорректные данные')
+  	return False
+  # отдаем число считалке факториалов
+  fnGenFactorial(n)
 
 # функция получения списка факториалов
 def fnGenFactorial(n):
-	# список факториалов
-	listFactorials = []
-	# считаем начальный факториал
-	factorial = n
-	for i in range(1, n):
-		factorial = factorial * i
-	# если результат большой, нет смысла ждать, 
-	# все равно в print() не влезет
-	if factorial > maxFactorials:
-		# на случай, если даже сюда не влазит
-		overBig = 10**(maxFactorials - 1)
-		if factorial > overBig:
-			print(msgBigFactorial %('свыше ', overBig))
-		else:
-			print(msgBigFactorial %('', factorial))
-		return False
-	# считаем факториалы по убывающей от начального и заносим в список
-	for n2 in range(factorial, 0, -1):
-		factorial2 = n2
-		for i2 in range(1, n2):
-			factorial2 = factorial2 * i2
-		listFactorials.append(factorial2)
-	print(listFactorials)
+  # список факториалов
+  listFactorials = []
+  # считаем начальный факториал
+  factorial = n
+  for i in range(1, n):
+  	factorial = factorial * i
+  # если результат большой, нет смысла ждать, 
+  # все равно в print() не влезет
+  if factorial > maxFactorials:
+  	# на случай, если даже сюда не влазит
+  	overBig = 10**(maxFactorials - 1)
+  	if factorial > overBig:
+  		print(msgBigFactorial %('свыше ', overBig))
+  	else:
+  		print(msgBigFactorial %('', factorial))
+  	return False
+  # считаем факториалы по убывающей от начального и заносим в список
+  for n2 in range(factorial, 0, -1):
+  	factorial2 = n2
+  	for i2 in range(1, n2):
+  		factorial2 = factorial2 * i2
+  	listFactorials.append(factorial2)
+  print(listFactorials)
 
 fnStart()

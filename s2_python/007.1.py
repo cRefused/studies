@@ -11,6 +11,6 @@ strCheckP = input('Введите слово без пробелов: ')
 # print(strCheckP[::1], strCheckP[::-1])
 
 if strCheckP[::1] == strCheckP[::-1]:
-	print(f'Слово [{strCheckP}] является палиндромом')
+  print(f'Слово [{strCheckP}] является палиндромом')
 else:
-	print(f'Слово [{strCheckP}] НЕ является палиндромом')
+  print(f'Слово [{strCheckP}] НЕ является палиндромом')

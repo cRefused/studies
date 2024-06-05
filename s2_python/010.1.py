@@ -57,13 +57,13 @@ pets[petName] = {'petVid':petVid, 'petAge':petAge, 'petOwner':petOwner}
 petAgeY = int(str(petAge)[-1])
 petAgeY10 = int(str(petAge)[(len(str(petAge))-2)::])
 if (10 <= petAge <= 20) or (10 <= petAgeY10 <= 20):
-	year = 'лет'
+  year = 'лет'
 elif petAgeY == 1:
-	year = 'год'
+  year = 'год'
 elif 2 <= petAgeY <= 4:
-	year = 'года'
+  year = 'года'
 else:
-	year = 'лет'
+  year = 'лет'
 
 print(f"Это {pets[petName]['petVid']} по кличке \"{petName}\". Возраст питомца: {pets[petName]['petAge']} {year}. Имя владельца: {pets[petName]['petOwner']}")
 

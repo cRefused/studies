@@ -10,25 +10,25 @@
 moneyStartup = 1000
 
 try:
-	moneyMike = int(input('Сколько денег у Майка?: '))
-	moneyIvan = int(input('Сколько денег у Ивана?: '))
+  moneyMike = int(input('Сколько денег у Майка?: '))
+  moneyIvan = int(input('Сколько денег у Ивана?: '))
 except ValueError:
-	print('Деньги должны быть выражены целым числом')
-	exit()
+  print('Деньги должны быть выражены целым числом')
+  exit()
 
 moneySum = moneyIvan + moneyMike
 msg = ''
 
 if moneyMike >= moneyStartup and moneyIvan >= moneyStartup:
-	msg = 2
+  msg = 2
 elif moneyMike >= moneyStartup:
-	msg = 'Mike'
+  msg = 'Mike'
 elif moneyIvan >= moneyStartup:
-	msg = 'Ivan'
+  msg = 'Ivan'
 elif moneySum >= moneyStartup:
-	msg = 1
+  msg = 1
 else:
-	msg = 0
-	
+  msg = 0
+  
 print('Код состоятельности: %s' %(msg))
 

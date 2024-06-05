@@ -14,14 +14,14 @@ maxSubN = int(2*10e+9)
 subN = set()
 
 if (minN > n) or (n > maxN):
-	print(f'Значение должно быть в диапазоне ({minN} ≤ N ≤ {maxN})')
-	exit()
-	
+  print(f'Значение должно быть в диапазоне ({minN} ≤ N ≤ {maxN})')
+  exit()
+  
 for i in range(n):
-	k = int(input(f'Введите число #{i+1}, не превышающее {maxSubN} по модулю: '))
-	if (-maxSubN > k) or (k > maxSubN):
-		print(f'{k} превышает {maxSubN} по модулю, пропускаем')
-	else:
-		subN.add(k)
-		
+  k = int(input(f'Введите число #{i+1}, не превышающее {maxSubN} по модулю: '))
+  if (-maxSubN > k) or (k > maxSubN):
+  	print(f'{k} превышает {maxSubN} по модулю, пропускаем')
+  else:
+  	subN.add(k)
+  	
 print(f'Различающихся чисел: {len(subN)}')

@@ -15,7 +15,7 @@
 arrDegree = {}
 
 for i in range(10,-6,-1):
-	arrDegree[i] = i**i
-	
+  arrDegree[i] = i**i
+  
 print(arrDegree)
 

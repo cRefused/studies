@@ -11,24 +11,24 @@
 strIntNumber = input('Введите целое число: ')
 
 try:
-	intNumber = int(strIntNumber)
+  intNumber = int(strIntNumber)
 except ValueError:
-	print('[%s] не является целым числом' %(strIntNumber))
-	exit()
-	
+  print('[%s] не является целым числом' %(strIntNumber))
+  exit()
+  
 if intNumber > 0:
-	msg = 'Положительное'
+  msg = 'Положительное'
 else:
-	msg = 'Отрицательное'
+  msg = 'Отрицательное'
 
 if intNumber != 0 and (intNumber % 2) != 0:
-	msgEven = 'нечетное число'
+  msgEven = 'нечетное число'
 elif intNumber != 0 and (intNumber % 2) == 0:
-	msgEven = 'четное число'
+  msgEven = 'четное число'
 else:
-	msg = 'Нулевое'
-	msgEven = 'число'
-	
+  msg = 'Нулевое'
+  msgEven = 'число'
+  
 print('%s %s' %(msg, msgEven))
 
-	
+  
