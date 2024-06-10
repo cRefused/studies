@@ -25,5 +25,5 @@ myString = myString.split()
 for i in range(0, len(myString)):
   print('[%-2s][%s]' %(i, myString[i]))
   
-print()
+print(" ")
 
