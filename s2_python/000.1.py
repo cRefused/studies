@@ -6,7 +6,7 @@
 # уберем всякие запятые с точками.
 #
 # тоже самое на си:
-# https://github.com/cRefused/c_test/blob/main/split_string.c
+# https://github.com/cRefused/c_test/blob/main/split_string
 
 # эти символы будем убирать
 other_spr = ".,!@#$^&*/\\\%{}[]()-"
