@@ -66,7 +66,7 @@
 
 from random import randint
 
-print("Вседите размерность матрицы через пробел (например 10 5): ", end='')
+print("Введите размерность матрицы через пробел (например 10 5): ", end='')
 try:
   arr_size = list(map(int, input().split()))
 except:
