@@ -66,40 +66,43 @@
 
 from random import randint
 
-print("Введите размерность матрицы через пробел (например 10 5): ", end='')
-try:
-  arr_size = list(map(int, input().split()))
-except:
-  print("Некорректные данные")
-  exit()
+def main():
+  print("Введите размерность матрицы через пробел (например 10 5): ", end='')
+  try:
+    arr_size = list(map(int, input().split()))
+  except:
+    print("Некорректные данные")
+    return
 
-if len(arr_size) != 2:
-  print("Некорректные данные")
-  exit()
+  if len(arr_size) != 2:
+    print("Некорректные данные")
+    return
 
-arr_1 = [[randint(-100, 100) for i in range(arr_size[1])] for i in range(arr_size[0])]
-arr_2 = [[randint(-100, 100) for i in range(arr_size[1])] for i in range(arr_size[0])]
-arr_3 = [[0 for i in range(arr_size[1])] for i in range(arr_size[0])]
+  arr_1 = [[randint(-100, 100) for i in range(arr_size[1])] for i in range(arr_size[0])]
+  arr_2 = [[randint(-100, 100) for i in range(arr_size[1])] for i in range(arr_size[0])]
+  arr_3 = [[0 for i in range(arr_size[1])] for i in range(arr_size[0])]
 
-print("\nПервая матрица:")
-for i in range(len(arr_1)):
-  for j in range(len(arr_1[i])):
-    print("%4s" %(arr_1[i][j]), sep=' ', end='')
-  print('')
+  print("\nПервая матрица:")
+  for i in range(len(arr_1)):
+    for j in range(len(arr_1[i])):
+      print("%4s" %(arr_1[i][j]), sep=' ', end='')
+    print('')
 
-print("\nВторая матрица:")
-for i in range(len(arr_2)):
-  for j in range(len(arr_2[i])):
-    print("%4s" %(arr_2[i][j]), sep=' ', end='')
-  print('')
+  print("\nВторая матрица:")
+  for i in range(len(arr_2)):
+    for j in range(len(arr_2[i])):
+      print("%4s" %(arr_2[i][j]), sep=' ', end='')
+    print('')
 
-# Считаем
-for i in range(len(arr_3)):
-  for j in range(len(arr_3[i])):
-    arr_3[i][j] = arr_1[i][j] + arr_2[i][j]
+  # Считаем
+  for i in range(len(arr_3)):
+    for j in range(len(arr_3[i])):
+      arr_3[i][j] = arr_1[i][j] + arr_2[i][j]
 
-print("\nРезультат сложения:")
-for i in range(len(arr_3)):
-  for j in range(len(arr_3[i])):
-    print("%4s" %(arr_3[i][j]), sep=' ', end='')
-  print('')
+  print("\nРезультат сложения:")
+  for i in range(len(arr_3)):
+    for j in range(len(arr_3[i])):
+      print("%4s" %(arr_3[i][j]), sep=' ', end='')
+    print('')
+
+main()
