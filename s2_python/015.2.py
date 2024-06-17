@@ -17,7 +17,7 @@
 # Ожидаемый результат вывода:
 # Вместимость одного автобуса Renaul Logan: 50 пассажиров
 
-class transport:
+class transport(object):
   capacity = 50
 
   def __init__(self, name, max_speed, mileage):

@@ -13,7 +13,7 @@
 # Ожидаемый результат вывода:
 # Название автомобиля: Renaul Logan Скорость: 180 Пробег: 12
 
-class transport:
+class transport(object):
   def __init__(self, name, max_speed, mileage):
     self.name = name
     self.max_speed = max_speed
