@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
+            <a class="nav-link" href="#">Добавить новость</a>
+            <a class="nav-link" href="../admin">Админка</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <h1>{{ category_cur.title }}</h1>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="list-group">
+              {% for i in category_all %}
+                <a href="{{ i.id }}" class="list-group-item list-group-item-action">{{ i.title }}</a>
+              {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-8">
+
+          {% comment %}
+          проходимся по news_all
+          {% endcomment %}
+
+          {% for i in news_category %}
+          <div class="card mb-3">
+            <span>
+              {{ forloop.counter }}
+            </span>
+            <div class="card-header">
+              Категория: {{i.category}}
+            </div>
+            <div class="media" style="display:flex;">
+              <div class="media-photo">
+                {% if i.photo%}
+                  <img src="{{ i.photo.url }}" class="mr-3" width="350" alt="IMAGE">
+                {% endif %}
+              </div>
+              <div class="media-body">
+                <h5 class="card-title {% cycle 'text-success' 'text-danger' %}">
+                  {{i.title}}
+                </h5>
+                {% autoescape off %}
+                <p class="card-text">{{i.content | truncatewords:25 | linebreaks}}</p>
+                {% endautoescape %}
+                <a href="#" class="btn btn-primary">Read more...</a>
+              </div>
+            </div>
+            <div class="card-footer text-body-secondary">
+              {{i.created_at | date:'Y-m-d H:i'}}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+        <!-- <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
+  </body>
+</html>

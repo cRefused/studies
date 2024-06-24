@@ -1,0 +1,41 @@
+select {
+  color: inherit;
+  background: inherit;
+  position: relative;
+  vertical-align: middle;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+select.main {
+  height: 28px;
+  max-width: 300px;
+  padding: 2px;
+  border: 1px solid #bcbcbc;
+  border-radius: 3px 3px 3px 3px;
+  cursor: pointer;
+}
+
+select.main.w01 {
+  max-width: 50px;
+}
+select.act {
+  border-color: #337ab7; 
+  /* box-shadow: 0px 0px 1px 0px #337ab7; */
+}
+
+select.noact,option.noact {
+}
+
+select.disabled {
+  color: #bcbcbc;
+  cursor: default;
+}
+
+select.noarrow {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; 
+}
+

@@ -1,0 +1,362 @@
+body {
+  padding: 0px;
+  padding-bottom: 15px;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 34px
+}
+
+h2 {
+  font-size: 28px
+}
+
+h3 {
+  font-size: 23px
+}
+
+h4 {
+  font-size: 18px
+}
+
+h1, h2, h3, h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #333;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.button {
+  background: #fff; 
+  color: inherit;
+  position: relative;
+  vertical-align: middle;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+
+  height: 28px;
+  border: 1px solid #bcbcbc;
+  border-radius: 3px 3px 3px 3px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+a.button:hover {
+  text-decoration: none;
+  border-color: #337ab7;
+  /*
+  background: #f7f7f7;
+  box-shadow: 0px 0px 2px 0px #bcbcbc;
+  */
+}
+
+details summary {
+  display: block;  /* у summary по умолчанию свойство display в значении list-item, потому поддерживается свойство list-style */
+  width: 10em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;  /* блок раскрывается при щелчке по кнопке, а не по всей строке */
+  outline-style: none;  /* удалить обводку при фокусе */
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: none;
+}
+details summary::-webkit-details-marker {  /* нестандартный псевдоэлемент Google Chrome */
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.tbl-header {
+  background-color: rgba(255,255,255,0.3);
+}
+.tbl-content {
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.page-number {
+  padding: 5px;
+}
+
+.wait-image {
+  width: 100px;
+  height: 100px;
+  opacity: 0.3;
+}
+
+.loader-spinner-icon {
+  position: absolute;
+  margin: 0px auto;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  border-top: 0.7em solid rgba(255, 255, 255, 0.2);
+  border-right: 0.7em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.7em solid rgba(255, 255, 255, 0.2);
+  border-left: 0.7em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  opacity: 0.8;
+  -webkit-animation: spinaround 1s infinite linear;
+  -moz-animation: spinaround 1s infinite linear;
+  animation: spinaround 1s infinite linear;
+}
+@-moz-keyframes spinaround {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinaround {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinaround {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* NAVBAR BEGIN */
+nav {
+  position: fixed;
+  background: white; 
+  border: 0px;
+  border-bottom: 1px solid #bcbcbc;
+  box-shadow: 0 1px 4px 0 rgba(128,128,128,0.25);
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  margin: 0 auto;
+  padding: 0px;
+  white-space: nowrap;
+  z-index: 11;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+}
+
+ul.navbar {
+  /*
+  width: 1800px;
+  min-width: 1000px;
+  max-width: 1800px;
+  margin: 0 auto;
+  */
+  text-align: left;
+  padding: 0px;
+}
+
+ul.navbar > li {
+  display: inline-block;
+  position: relative;
+}
+
+a.navbar {
+  padding: 10px;
+  margin-left: 10px;
+  border-bottom: 2px solid transparent;
+  color: #444;
+  text-decoration: none;
+}
+
+a.navbar.active, a.navbar:hover { 
+  cursor: pointer;
+  color: #222;
+  border-bottom: 2px solid #337ab7;
+}
+
+a.mainmenu {
+  padding: 7px;
+  margin-left: 30px;
+  margin-right: 10px;
+  color: #777;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+a.mainmenu:hover { 
+  text-decoration: none;
+  color: #444;
+}
+
+ul.submenu {
+  display: none;
+  position: absolute;
+  left: 20px;
+  min-width: 50px;
+  max-width: 300px;
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .175);
+  margin: 10px 4px;
+  vertical-align: middle;
+  text-align: left;
+  padding: 0px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.mainmenu:focus ~ ul.submenu,
+.mainmenu:active ~ ul.submenu,
+ul.submenu:hover {
+  display: block;
+}
+
+a.submenu {
+  padding: 7px;
+  padding-bottom: 7px;
+  margin: 0 10px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #444;
+}
+
+li.submenu { 
+  background: #fff;
+  cursor: pointer;
+  color: #444;
+  border: 0px;
+  text-decoration: none;
+}
+
+li.submenu:hover { 
+  background: rgba(14,21,47,.05);
+  color: #222;
+}
+
+li.submenu-tail {
+  background: #fff;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 0;
+  right: 0;
+  border-bottom:  1px solid #cdcdcd;
+  border-left: 1px solid #cdcdcd;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  z-index: 1;
+}
+
+div.navbtn-container {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  padding: 0px;
+  margin-right: 15px;
+}
+
+div.navbtn {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.navbtn.menu {
+  bottom: -2px;
+}
+
+a.mainmenu:focus span.menu-icon:not(.child), a.mainmenu:hover span.menu-icon:not(.child) {
+  background-color: #444;
+}
+
+span.menu-icon {
+  border-radius: 5px;
+  display: block;
+  height: 2px;
+  width: 15px;
+  background-color: #777;
+}
+
+span.menu-icon.child {
+  height: 3px;
+  background-color: inherit;
+}
+
+span.checkbox-container-v2 {
+  display: block;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+/* NAVBAR END */
+
+span.downlabel {
+  padding: 0px;
+  font-size: 10px;
+  color: #888;
+  text-decoration: none;
+}
+
+.blink {
+  animation: 5s blinker linear 1; 
+}
+
+@keyframes blinker {
+0% { 
+  background: #ffffe1; 
+  transition: 5s;
+  }
+}

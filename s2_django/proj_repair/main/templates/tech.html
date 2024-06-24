@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+    <link rel="stylesheet" href="{% static 'css/select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/div.css' %}">
+    <title>{{title}}</title>
+  </head>
+  <body>
+
+  <nav>
+    <ul class="navbar">
+      <li><a href="javascript:void(0);" class="mainmenu" tabindex="1">
+          <div class="navbtn-container">
+            <div class="navbtn menu">
+              <span class="menu-icon"></span>
+              <span class="menu-icon child"></span>
+              <span class="menu-icon"></span>
+              <span class="menu-icon child"></span>
+              <span class="menu-icon"></span>
+            </div>
+          </div>
+        </a>
+        <ul class="submenu">
+          <li class="submenu-tail" style="left: 14px; top: -5px;"></li>
+            <li class="submenu"><a class="submenu" onclick="document.location=' '">Войти</a></li>      </ul>
+      </li>
+
+        <li>
+        <a class="navbar   active" href="{% url 'index'%}" onclick="wSpinner_tmout();">Журнал ремонта</a>
+        </li>
+        <li>
+        <a class="navbar " href="../admin/" target="blank"">Админка</a>
+        </li>
+        <li>
+        <a class="navbar " href="#" onclick="wSpinner_tmout();">Поиск по инв. номеру</a>
+        </li>  </ul>
+  </nav>
+  <div class="body">
+    <div class="main">
+    <h3>Карточка ремонта</h3>
+    <form name="records_note" id="records_note" action="?" method="post"></form>
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td width="28%">Инвентарный №</td>
+          <td>{{ tech_cur.inv_num }}</td>
+        </tr>
+        <tr>
+          <td>Наименование</td>
+          <td>{{ tech_cur.type_t }}</td>
+        </tr>
+        <tr>
+          <td>Отдел</td>
+          <td>{{ tech_cur.terr_otd }}</td>
+        </tr>
+        <tr>
+          <td width="28%">Неисправность</td>
+          <td>
+            <textarea form="records_note" name="reg_no" type="text" rows="2" cols="100">{{ tech_cur.defect }}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td width="28%">Проделаная работа</td>
+          <td>
+          <textarea form="records_note" name="text" type="text" rows="5" cols="100">{{ tech_cur.work_done }}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Дата приемки</td>
+          <td>{{ tech_cur.date_accept }}</td>
+        </tr>
+        <tr>
+          <td>Дата выдачи</td>
+          <td>{{ tech_cur.date_issue }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+  </body>
+</html>
