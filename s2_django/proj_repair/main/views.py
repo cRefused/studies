@@ -13,6 +13,7 @@ def get_index(request):
   }
   return render(request, 'index.html', context)
 
+# просмотр/редактирование карточки
 @csrf_exempt
 def get_rcard(request):
   if(request.POST):
@@ -46,13 +47,13 @@ def get_rcard(request):
   msg = 'Nothing'
   return HttpResponse(msg)
 
+# добавление новой карточки
 @csrf_exempt
 def new_rcard(request):
   if(request.POST):
     if('fn' in request.POST and request.POST['fn'] == 'open_rcard'):
       cur_date = datetime.now
       equipment_name = equipment_name_db.objects.all()
-      print(cur_date)
       context = {
         'cur_date': cur_date,
         'equipment_name': equipment_name,
@@ -60,31 +61,31 @@ def new_rcard(request):
       return render(request, 'new_rcard.html', context)
     elif('fn' in request.POST and request.POST['fn'] == 'write_rcard'):
       inv_num = request.POST['inv_num']
-      equipment_name = request.POST['equipment_name']
+      equipment_id = request.POST['equipment_id']
       otdel = request.POST['otdel']
       defect = request.POST['defect']
       date_accept = request.POST['date_accept']
       tmp = list(date_accept.split('-'))
-      #!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      date_accept_formatted = tmp
+
+      date_accept_dmy = f"{tmp[2]}.{tmp[1]}.{tmp[0]}"
+      equipment_name = equipment_name_db.objects.get(pk = equipment_id)
 
       tech_db.objects.create(
         inv_num = inv_num,
-        equipment_name_id = equipment_name,
+        equipment_name_id = equipment_id,
         otdel = otdel,
         defect = defect,
         date_accept = date_accept,
       )
-      # rcard_new_id = tech_db.objects.last().id
       rcard_new_id = tech_db.objects.all().order_by('-pk')[0].id
 
       context = {
         'rcard_new_id': rcard_new_id,
         'inv_num': inv_num,
-        'equipment_name_id': equipment_name,
+        'equipment_name': equipment_name.title,
         'otdel': otdel,
         'defect': defect,
-        'date_accept': date_accept_formatted,
+        'date_accept': date_accept_dmy,
       }
       return render(request, 'past_rcard_to_tbody.html', context)
   else:

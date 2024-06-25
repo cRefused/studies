@@ -111,18 +111,19 @@ function open_new_rcard_done(text){
   document.getElementById('main').insertAdjacentHTML('afterbegin', msg_container);
 }
 
+// добавление новой карточки
 function send_new_rcard(f) {
   $('.error').remove();
 
   var msg_uncomplete = '<div class="error"><b>Не все поля заполнены</b></div>';
   var inv_num = document.forms[f].elements['inv_num'].value;
-  var equipment_name = document.forms[f].elements['equipment_name'].value;
+  var equipment_id = document.forms[f].elements['equipment_id'].value;
   var otdel = document.forms[f].elements['otdel'].value;
   var defect = document.forms[f].elements['defect'].value;
   var date_accept = document.forms[f].elements['date_accept'].value;
 
   if(inv_num == ''
-  || equipment_name == ''
+  || equipment_id == ''
   || otdel == ''
   || defect == ''
   || date_accept == '')
@@ -134,7 +135,7 @@ function send_new_rcard(f) {
   // заполняем данные формы
   var rcard = new FormData();
   rcard.append('inv_num', inv_num);
-  rcard.append('equipment_name', equipment_name);
+  rcard.append('equipment_id', equipment_id);
   rcard.append('otdel', otdel);
   rcard.append('defect', defect);
   rcard.append('date_accept', date_accept);
