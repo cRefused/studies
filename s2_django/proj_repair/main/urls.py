@@ -4,12 +4,12 @@ from django.urls import path
 #from django.conf import settings
 
 # My sites
-from .views import get_index, get_rcard
+from .views import get_index, get_rcard, new_rcard
 
 urlpatterns = [
     path('', get_index, name='index'),
     path('fn/get_rcard', get_rcard),
-#    path('human', human),
+    path('fn/new_rcard', new_rcard),
 ]
 
 #if settings.DEBUG:

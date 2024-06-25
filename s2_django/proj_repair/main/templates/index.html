@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/div.css' %}">
     <script type="text/javascript" src="{% static 'js/rcard.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/misc.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <title>{{title}}</title>
   </head>
   <body>
@@ -46,7 +47,9 @@
   <div class="body">
     <div class="main" id="main">
     <div class="info_tu">
-      <a href="#">+ Добавить запись</a>
+      <a href="javascript:void(0); open_new_rcard();">
+        + Добавить запись
+      </a>
     </div>
 
     <h3>{{title}}</h3>
@@ -62,6 +65,7 @@
           <th class="main min_v1 max_v1">Дата выдачи</th>
         </tr>
       </thead>
+      <tbody id="list_rcard">
     {% for i in tech_db_all %}
       <tr class="rtcolor hover" id="tr_rcard_{{i.id}}">
         <td class="main">
@@ -73,10 +77,11 @@
         <td class="main">{{i.otdel}}</td>
         <td class="main" id="defect_{{i.id}}">{{i.defect}}</td>
         <td class="main" id="work_done_{{i.id}}">{{i.work_done}}</td>
-        <td class="main">{{i.date_accept | date:'Y-m-d'}}</td>
-        <td class="main">{{i.date_issue | date:'Y-m-d'}}</td>
+        <td class="main">{{i.date_accept | date:'d.m.Y'}}</td>
+        <td class="main">{{i.date_issue | date:'d.m.Y'}}</td>
       </tr>
     {% endfor %}
+    </tbody>
     </table>
     </div>
   </div>

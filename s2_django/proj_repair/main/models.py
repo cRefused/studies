@@ -14,7 +14,7 @@ class tech_db(models.Model):
   class Meta:
     verbose_name = "Тенику"
     verbose_name_plural = "Теника"
-    ordering = ['-date_accept']
+    ordering = ['-id','-date_accept']
 
 class equipment_name_db(models.Model):
   title = models.CharField(max_length = 32, db_index=True, verbose_name="Наименование")
