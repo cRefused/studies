@@ -36,7 +36,7 @@ div.main-frame {
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 1px 10px 0 #555;
   margin: 0px auto;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
   min-width: 250px;
   width: 1000px;
@@ -84,7 +84,7 @@ div.knlist {
   overflow: auto;
   border-color: inherit;
   border-style: solid;
-  border-width: 0px; 
+  border-width: 0px;
   border-radius: 5px 5px 5px 5px;
   padding: 2px;
   padding-top: 11px;
@@ -107,7 +107,7 @@ div.info.tu {
 
 div.info.pr {
   padding: 7px;
-  border-width: 0px; 
+  border-width: 0px;
   color: #999;
 }
 
@@ -169,14 +169,14 @@ div.error {
   margin: 10px;
   border-color: #ccc;
   border-style: solid;
-  border-width: 1px; 
+  border-width: 1px;
   border-radius: 3px 3px 3px 3px;
   font-size: 12px;
   color: #555;
 }
 
 div.error.login {
-  margin-top: 0px; 
+  margin-top: 0px;
   margin-bottom: 0px;
   text-align: left;
 }
@@ -243,7 +243,7 @@ div.content-blocker {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); 
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 4444;
 }
 
@@ -253,7 +253,7 @@ div.content-blocker-container {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  vertical-align: middle; 
+  vertical-align: middle;
   text-align: center;
   color: #777;
   font-size: 55px;
@@ -268,7 +268,7 @@ div.frame-blocker {
   height: 100%;
   padding: 20px;
   padding-left: 5px;
-  background-color: rgba(0, 0, 0, 0.3); 
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 90;
   overflow: auto;
 }
@@ -316,15 +316,18 @@ div.sp-tail {
 }
 
 .info_tu {
-  display: block; 
+  position: absolute;
   color: #777;
   cursor: default;
+  top: 35px;
+  right: 55px;
+  font-size: 12pt;
 }
 
 .comment_container_f7swf {
   display: table;
   margin: 0px 0px 5px 0px;
-  width: 95%; 
+  width: 95%;
   max-width: 95%;
   padding: 0px;
 }
@@ -369,12 +372,12 @@ div.sp-tail {
 
 /* диалог логина/смены пароля BEGIN */
 div.login-container {
-  display: table; 
+  display: table;
   min-width: 800px;
   max-width: 1200px;
-  margin: 0px auto; 
-  height: 70vh; 
-  vertical-align: middle; 
+  margin: 0px auto;
+  height: 70vh;
+  vertical-align: middle;
   text-align: center;
 }
 
@@ -387,8 +390,8 @@ div.login-container {
   border-radius: 10px;
   box-shadow: 0 1px 4px 0 rgba(128,128,128,0.25);
   padding: 0px;
-  margin: 20% 0 0 auto; 
-  vertical-align: middle; 
+  margin: 20% 0 0 auto;
+  vertical-align: middle;
 }
 
 .login-row {

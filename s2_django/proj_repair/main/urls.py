@@ -4,12 +4,11 @@ from django.urls import path
 #from django.conf import settings
 
 # My sites
-from .views import get_index, get_tech
+from .views import get_index, get_rcard
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='adm'),
     path('', get_index, name='index'),
-    path('tech/<int:tid>', get_tech, name='tech'),
+    path('fn/get_rcard', get_rcard),
 #    path('human', human),
 ]
 

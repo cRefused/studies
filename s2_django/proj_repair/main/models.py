@@ -2,13 +2,13 @@ from django.db import models
 
 class tech_db(models.Model):
   inv_num = models.CharField(max_length = 32, verbose_name="Инв. номер")
-  type_t = models.ForeignKey('type_t_db', on_delete=models.PROTECT, null=True, blank=True, verbose_name="Наименование")
-  terr_otd = models.CharField(max_length = 32, verbose_name="Отдел")
+  equipment_name = models.ForeignKey('equipment_name_db', on_delete=models.PROTECT, null=True, blank=True, verbose_name="Наименование")
+  otdel = models.CharField(max_length = 32, verbose_name="Отдел")
   defect = models.TextField(verbose_name="Неисправность")
   work_done = models.TextField(blank=True, verbose_name="Проделаная работа")
 #  date_accept = models.DateTimeField(auto_now_add = True, verbose_name="Дата приемки")
-  date_accept = models.DateTimeField(verbose_name="Дата приемки")
-  date_issue = models.DateTimeField(null=True, blank=True, verbose_name="Дата выдачи")
+  date_accept = models.DateField(verbose_name="Дата приемки")
+  date_issue = models.DateField(null=True, blank=True, verbose_name="Дата выдачи")
 
   # для описания обекта в админке
   class Meta:
@@ -16,7 +16,7 @@ class tech_db(models.Model):
     verbose_name_plural = "Теника"
     ordering = ['-date_accept']
 
-class type_t_db(models.Model):
+class equipment_name_db(models.Model):
   title = models.CharField(max_length = 32, db_index=True, verbose_name="Наименование")
 
   class Meta:

@@ -3,12 +3,16 @@
 <html>
   <head>
     <meta charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'ico/favicon.ico' %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/input.css' %}">
     <link rel="stylesheet" href="{% static 'css/select.css' %}">
     <link rel="stylesheet" href="{% static 'css/table.css' %}">
     <link rel="stylesheet" href="{% static 'css/div.css' %}">
+    <script type="text/javascript" src="{% static 'js/rcard.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/misc.js' %}"></script>
     <title>{{title}}</title>
   </head>
   <body>
@@ -37,38 +41,40 @@
         <li>
         <a class="navbar " href="../admin/" target="blank"">Админка</a>
         </li>
-        <li>
-        <a class="navbar " href="#" onclick="wSpinner_tmout();">Поиск по инв. номеру</a>
-        </li>  </ul>
+        </ul>
   </nav>
   <div class="body">
-    <div class="main">
+    <div class="main" id="main">
+    <div class="info_tu">
+      <a href="#">+ Добавить запись</a>
+    </div>
+
     <h3>{{title}}</h3>
-    <table class="main">
+    <table class="main" width="100%">
       <thead class="main">
         <tr class="main">
           <th class="main min_v1 max_v1">Инв. номер</th>
           <th class="main min_v1 max_v1">Наименование</th>
           <th class="main min_v1 max_v2">Отдел</th>
           <th class="main min_v1 max_v2">Неисправность</th>
-          <th class="main min_v1 max_v2">Проделаная работа</th>
+          <th class="main min_v2 max_v2">Проделаная работа</th>
           <th class="main min_v1 max_v1">Дата приемки</th>
           <th class="main min_v1 max_v1">Дата выдачи</th>
         </tr>
       </thead>
-    {% for i in news_all %}
-      <tr class="rtcolor hover">
+    {% for i in tech_db_all %}
+      <tr class="rtcolor hover" id="tr_rcard_{{i.id}}">
         <td class="main">
-          <a href="{% url 'tech' i.id %}">
+          <a href="javascript:void(0); open_rcard({{i.id}});" id="a{{i.id}}">
             {{i.inv_num}}
           </a>
         </td>
-        <td class="main">{{i.type_t}}</td>
-        <td class="main">{{i.terr_otd}}</td>
-        <td class="main">{{i.defect}}</td>
-        <td class="main">{{i.work_done}}</td>
-        <td class="main">{{i.date_accept | date:'Y-m-d H:i'}}</td>
-        <td class="main">{{i.date_issue | date:'Y-m-d H:i'}}</td>
+        <td class="main">{{i.equipment_name.title}}</td>
+        <td class="main">{{i.otdel}}</td>
+        <td class="main" id="defect_{{i.id}}">{{i.defect}}</td>
+        <td class="main" id="work_done_{{i.id}}">{{i.work_done}}</td>
+        <td class="main">{{i.date_accept | date:'Y-m-d'}}</td>
+        <td class="main">{{i.date_issue | date:'Y-m-d'}}</td>
       </tr>
     {% endfor %}
     </table>
