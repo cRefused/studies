@@ -13,7 +13,6 @@
 # будет: -16807.0
 
 strNumber = input('Введите пятизначное число: ')
-arrNumber = []
 
 if len(strNumber) != 5:
   print('Это не пятизначное число')
@@ -23,11 +22,7 @@ try:
 except ValueError:
   print('Некорректные данные: [%s]' %(strNumber))
   exit()
-  
-for i in strNumber:
-  i = int(i)
-  arrNumber.append(i)
 
-result = ((arrNumber[3] ** arrNumber[4]) * 2) / (arrNumber[0] - arrNumber[1])
+result = ((int(strNumber[3]) ** int(strNumber[4])) * int(strNumber[2])) / (int(strNumber[0]) - int(strNumber[1]))
 
 print('В результате нехитрых вычислений получаем: %s' %(result))
