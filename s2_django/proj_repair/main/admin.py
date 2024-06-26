@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # импорт таблиц из файла .models
-from .models import tech_db, equipment_name_db
+from .models import tech_db, equipment_name_db, otdel_db
 
 # для отображения записей в админке нормальном виде а не как объекты
 class tech_db_admin(admin.ModelAdmin):
@@ -12,6 +12,10 @@ class tech_db_admin(admin.ModelAdmin):
 class equipment_name_db_admin(admin.ModelAdmin):
   list_display = ('id', 'title')
 
+class otdel_db_admin(admin.ModelAdmin):
+  list_display = ('id', 'name')
+
 # регистрируем наши классы
 admin.site.register(tech_db, tech_db_admin)
 admin.site.register(equipment_name_db, equipment_name_db_admin)
+admin.site.register(otdel_db, otdel_db_admin)

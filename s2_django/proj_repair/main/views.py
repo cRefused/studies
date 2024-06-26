@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 
 # импорт таблиц бд из файла .models
-from .models import tech_db, equipment_name_db
+from .models import tech_db, equipment_name_db, otdel_db
 
 def get_index(request):
   context = {
@@ -53,27 +53,30 @@ def new_rcard(request):
   if(request.POST):
     if('fn' in request.POST and request.POST['fn'] == 'open_rcard'):
       cur_date = datetime.now
-      equipment_name = equipment_name_db.objects.all()
+      equipment_name = equipment_name_db.objects.all().order_by('title')
+      otdel_all = otdel_db.objects.all().order_by('name')
       context = {
         'cur_date': cur_date,
         'equipment_name': equipment_name,
+        'otdel_all': otdel_all,
       }
       return render(request, 'new_rcard.html', context)
     elif('fn' in request.POST and request.POST['fn'] == 'write_rcard'):
       inv_num = request.POST['inv_num']
       equipment_id = request.POST['equipment_id']
-      otdel = request.POST['otdel']
+      otdel_id = request.POST['otdel']
       defect = request.POST['defect']
       date_accept = request.POST['date_accept']
       tmp = list(date_accept.split('-'))
 
       date_accept_dmy = f"{tmp[2]}.{tmp[1]}.{tmp[0]}"
       equipment_name = equipment_name_db.objects.get(pk = equipment_id)
+      otdel = otdel_db.objects.get(pk = otdel_id)
 
       tech_db.objects.create(
         inv_num = inv_num,
         equipment_name_id = equipment_id,
-        otdel = otdel,
+        otdel_id = otdel_id,
         defect = defect,
         date_accept = date_accept,
       )
@@ -83,7 +86,7 @@ def new_rcard(request):
         'rcard_new_id': rcard_new_id,
         'inv_num': inv_num,
         'equipment_name': equipment_name.title,
-        'otdel': otdel,
+        'otdel': otdel.name,
         'defect': defect,
         'date_accept': date_accept_dmy,
       }

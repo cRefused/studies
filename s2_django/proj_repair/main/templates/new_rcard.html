@@ -1,5 +1,5 @@
 <div class="main-frame" id="main-frame">
-<h3>Карточка ремонта</h3>
+<h3>Добавление записи</h3>
 <form name="record_new_rcard" id="record_new_rcard" action="?" method="post">
 {% csrf_token %}
 </form>
@@ -8,7 +8,7 @@
     <tr>
       <td width="28%">Инвентарный №</td>
       <td>
-        <input form="record_new_rcard" name="inv_num" required></input>
+        <input class="main" form="record_new_rcard" name="inv_num" required></input>
       </td>
     </tr>
     <tr>
@@ -27,7 +27,14 @@
     <tr>
       <td>Отдел</td>
       <td>
-        <input form="record_new_rcard" name="otdel" required></input>
+        <select class="main nobrd" form="record_new_rcard" name="otdel" required>
+        <option value="">---</option>
+        {% for i in otdel_all %}
+        <option value="{{ i.id }}">
+        {{ i.name }}
+        </option>
+        {% endfor %}
+        <select>
       </td>
     </tr>
     <tr>
