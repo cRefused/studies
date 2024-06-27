@@ -1,0 +1,58 @@
+<div class="main-frame" id="rcard-frame">
+<h3>Добавление записи</h3>
+<form name="record_new_rcard" id="record_new_rcard" action="?" method="post">
+</form>
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td width="28%">Инвентарный №</td>
+      <td>
+        <input class="main" form="record_new_rcard" name="inv_num" required></input>
+      </td>
+    </tr>
+    <tr>
+      <td>Наименование</td>
+      <td>
+        <select class="main nobrd" form="record_new_rcard" name="equipment_id" required>
+        <option value="">---</option>
+        {% for i in equipment_name %}
+        <option value="{{ i.id }}">
+        {{ i.title }}
+        </option>
+        {% endfor %}
+        <select>
+      </td>
+    </tr>
+    <tr>
+      <td>Отдел</td>
+      <td>
+        <select class="main nobrd" form="record_new_rcard" name="otdel" required>
+        <option value="">---</option>
+        {% for i in otdel_all %}
+        <option value="{{ i.id }}">
+        {{ i.name }}
+        </option>
+        {% endfor %}
+        <select>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Неисправность</td>
+      <td>
+        <textarea form="record_new_rcard" name="defect" type="text" rows="2" cols="100" required></textarea>
+      </td>
+    </tr>
+      <td>Дата приемки</td>
+      <td>
+        <input required type="date" class="main w1" name="date_accept" form="record_new_rcard" max="{{ cur_date | date:'Y-m-d' }}" value="{{ cur_date | date:'Y-m-d' }}" placeholder="дд.мм.гггг" />
+        </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<button form="record_new_rcard" class="button" name="record_new_rcard_submit" type="button" onClick="send_new_rcard('record_new_rcard');">Сохранить</button>&#160;
+<button form="record_new_rcard" class="button" type="button" onClick="close_rcard(0); return false;" value="cancel">Отмена</button>
+<br><br>
+</div>
+
