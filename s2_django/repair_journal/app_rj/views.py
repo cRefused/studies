@@ -21,7 +21,7 @@ def get_index(request):
     'title': "Журнал ремонта",
     'tech_db_all': tech_db_all,
   }
-  return render(request, 'main/index.html', context)
+  return render(request, 'app_rj/index.html', context)
 
 # просмотр/редактирование карточки
 @csrf_exempt
@@ -42,7 +42,7 @@ def get_rcard(request):
         'cur_rcard': cur_rcard,
         'cur_date': datetime.now,
       }
-      return render(request, 'main/edit_rcard.html', context)
+      return render(request, 'app_rj/edit_rcard.html', context)
     # редактирование
     elif('fn' in request.POST and request.POST['fn'] == 'write_rcard'):
       rcard_id = request.POST['rcard_id']
@@ -96,7 +96,7 @@ def new_rcard(request):
         'equipment_name': equipment_name,
         'otdel_all': otdel_all,
       }
-      return render(request, 'main/new_rcard.html', context)
+      return render(request, 'app_rj/new_rcard.html', context)
     # добавление записи
     elif('fn' in request.POST and request.POST['fn'] == 'write_rcard'):
       inv_num = request.POST['inv_num']
@@ -134,7 +134,7 @@ def new_rcard(request):
         'defect': defect,
         'date_accept': date_accept_dmy,
       }
-      return render(request, 'main/past_rcard_to_tbody.html', context)
+      return render(request, 'app_rj/past_rcard_to_tbody.html', context)
   else:
     msg = '<div class="main-frame">ERROR</div>'
     return HttpResponse(msg)
