@@ -6,6 +6,7 @@ from datetime import datetime
 # импорт таблиц бд из файла .models
 from .models import tech_db, equipment_name_db, otdel_db
 
+# index page
 def get_index(request):
   href_font = dict()
   tech_db_all = tech_db.objects.all()
