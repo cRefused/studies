@@ -1,34 +1,16 @@
 > sqlite3 ./db.sqlite3
 
 .tables
-.schema news_news
+.schema test_db
 
-insert into news_news_db ('title', 'content', 'created_at', 'updated_at', 'photo', 'is_published') values ('test', 'test', '', '', '', '');
-
-insert into news_news_db ('title',
+insert into test_db ('title',
 'content',
-'created_at', 'updated_at', 'photo', 'is_published')
+'created_at', 'updated_at')
 values (
 'Test Title',
 'Test Content',
-'', '', '', '');
+'', '');
 
-select * from news_news_db;
+select * from test_db;
 
-delete from news_news_db where id = 1;
-
---------------
-
-insert into news_human_db ('name',
-'age',
-'city',
-'street',
-'num_home',
-'num_root')
-values (
-'TestName'
-'00',
-'Test City',
-'Test Street',
-'01',
-'01');
+delete from test_db where id = 1;
