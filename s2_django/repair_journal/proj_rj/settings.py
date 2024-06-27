@@ -128,5 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # для статики
 STATICFILES_DIRS = [
-   op_join(BASE_DIR, "static"),
+#   op_join(BASE_DIR, "static"),
 ]
