@@ -1,5 +1,5 @@
 input, button {
-  background: #fff; 
+  background: #fff;
   color: inherit;
   position: relative;
   vertical-align: middle;
@@ -65,15 +65,15 @@ input.number {
 }
 
 input.number.w40 {
-  width: 40px; 
+  width: 40px;
 }
 
 input.number.w50 {
-  width: 50px; 
+  width: 50px;
 }
 
 input.number.w55 {
-  width: 55px; 
+  width: 55px;
 }
 
 input.main {
@@ -83,7 +83,7 @@ input.main {
   border-radius: 3px 3px 3px 3px;
 }
 input[type='date'] {
-  min-width: 120px; 
+  min-width: 120px;
 }
 input[type='date']::-webkit-outer-spin-button,
 input[type='date']::-webkit-inner-spin-button {
@@ -92,15 +92,15 @@ input[type='date']::-webkit-inner-spin-button {
 }
 
 input.main.w1 {
-  width: 110px; 
+  width: 110px;
 }
 
 input.main.w2 {
-  width: 120px; 
+  width: 120px;
 }
 
 input.main.w5 {
-  width: 330px; 
+  width: 330px;
 }
 
 input.checkbox {
@@ -184,7 +184,7 @@ input.checkbox.radio + label:after {
 }
 
 textarea {
-  background: #fff; 
+  background: #fff;
   max-height: 120px;
   min-width: 99%;
   width: 99%;

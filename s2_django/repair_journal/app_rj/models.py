@@ -18,6 +18,9 @@ class tech_db(models.Model):
 class equipment_name_db(models.Model):
   title = models.CharField(max_length = 32, db_index=True, verbose_name="Наименование")
 
+  def __str__(self):
+    return self.title
+
   class Meta:
     verbose_name = "Наименование"
     verbose_name_plural = "Наименование"
@@ -25,6 +28,9 @@ class equipment_name_db(models.Model):
 
 class otdel_db(models.Model):
   name = models.CharField(max_length = 32, db_index=True, verbose_name="Отделы")
+
+  def __str__(self):
+    return self.name
 
   class Meta:
     verbose_name = "Отдел"

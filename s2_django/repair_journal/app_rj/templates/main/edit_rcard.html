@@ -1,4 +1,4 @@
-<div class="main-frame">
+<div class="main-frame" id="rcard-frame">
 <h3>Карточка ремонта</h3>
 <form name="records_rcard" id="records_rcard" action="?" method="post"></form>
 <table width="100%" cellspacing="0" cellpadding="0">
@@ -18,13 +18,17 @@
     <tr>
       <td width="28%">Неисправность</td>
       <td>
-        <textarea form="records_rcard" name="defect" type="text" rows="2" cols="100">{{ cur_rcard.defect }}</textarea>
+        {{ cur_rcard.defect }}
       </td>
     </tr>
     <tr>
       <td width="28%">Проделаная работа</td>
       <td>
-      <textarea form="records_rcard" name="work_done" type="text" rows="5" cols="100">{{ cur_rcard.work_done }}</textarea>
+      {% if rcard_ro == 0 %}
+        <textarea form="records_rcard" name="work_done" type="text" rows="5" cols="100">{{ cur_rcard.work_done }}</textarea>
+      {% else %}
+        {{ cur_rcard.work_done }}
+      {% endif %}
       </td>
     </tr>
     <tr>
@@ -33,14 +37,24 @@
     </tr>
     <tr>
       <td>Дата выдачи</td>
-      <td>{{ cur_rcard.date_issue | date:'d.m.Y' }}</td>
+      <td>
+        {% if rcard_ro == 0 %}
+          <input required type="date" class="main w1" name="date_issue" form="records_rcard" max="{{ cur_date | date:'Y-m-d' }}" value="" placeholder="дд.мм.гггг" />
+          <input type="checkbox" class="checkbox v2" id="di_checkbox" name="di_checkbox" form="records_rcard">
+          &nbsp;&nbsp;<label for="di_checkbox">&nbsp;Еще не выдано</label>
+        {% else %}
+          {{ cur_rcard.date_issue | date:'d.m.Y' }}
+        {% endif %}
+      </td>
     </tr>
   </tbody>
 </table>
 <br>
-<input form="records_rcard" type="hidden" name="rcard_id" value="{{ cur_rcard.id }}" />
-<button form="records_rcard" class="button" name="records_rcard_submit" type="button" onClick="send_rcard('records_rcard');">Сохранить</button>&#160;
-<button form="records_rcard" class="button" type="button" onClick="close_rcard({{ cur_rcard.id }}); return false;" value="cancel">Отмена</button>
+{% if rcard_ro == 0 %}
+  <input form="records_rcard" type="hidden" name="rcard_id" value="{{ cur_rcard.id }}" />
+  <button form="records_rcard" class="button" name="records_rcard_submit" type="button" onClick="send_rcard('records_rcard');">Сохранить</button>&#160;
+  <button form="records_rcard" class="button" type="button" onClick="close_rcard({{ cur_rcard.id }}); return false;" value="cancel">Отмена</button>
 <br><br>
+{% endif %}
 </div>
 

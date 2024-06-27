@@ -28,7 +28,7 @@
   {% for i in tech_db_all %}
     <tr class="rtcolor hover" id="tr_rcard_{{i.id}}">
       <td class="main">
-        <a href="javascript:void(0); open_rcard({{i.id}});" id="a{{i.id}}">
+        <a class="{{i.href_font}}" href="javascript:void(0); open_rcard({{i.id}});" id="a{{i.id}}">
           {{i.inv_num}}
         </a>
       </td>
@@ -37,7 +37,7 @@
       <td class="main" id="defect_{{i.id}}">{{i.defect}}</td>
       <td class="main" id="work_done_{{i.id}}">{{i.work_done}}</td>
       <td class="main">{{i.date_accept | date:'d.m.Y'}}</td>
-      <td class="main">{{i.date_issue | date:'d.m.Y'}}</td>
+      <td class="main" id="date_issue_{{i.id}}">{{i.date_issue | date:'d.m.Y'}}</td>
     </tr>
   {% endfor %}
   </tbody>

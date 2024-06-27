@@ -1,5 +1,7 @@
-function fn_msg_error(msg) {
-  document.getElementById('main-frame').insertAdjacentHTML('afterbegin', msg);
+var msg_uncomplete = '<div class="error"><b>Не все поля заполнены</b></div>';
+
+function fn_msg_error(eid, msg) {
+  document.getElementById(eid).insertAdjacentHTML('afterbegin', msg);
 }
 
 function close_rcard(rcard_id){
@@ -11,6 +13,7 @@ function close_rcard(rcard_id){
 
 // ---------------------------------------------------------
 
+// просмотр карточки
 function open_rcard(rcard_id) {
   var rcard = new FormData();
   rcard.append('rcard_id', rcard_id);
@@ -41,17 +44,31 @@ function open_rcard_done(rcard_id, text){
   document.getElementById('main').insertAdjacentHTML('afterbegin', msg_container);
 }
 
+// редактирование карточки
 function send_rcard(f) {
-  var defect = document.forms[f].elements['defect'].value;
+  $('.error').remove();
   var work_done = document.forms[f].elements['work_done'].value;
   var rcard_id = document.forms[f].elements['rcard_id'].value;
+  var date_issue = document.forms[f].elements['date_issue'].value;
+  var di_checkbox = document.forms[f].elements['di_checkbox'].checked;
+
+  if(di_checkbox == false  && (work_done == '' || date_issue == ''))
+  {
+    fn_msg_error('rcard-frame', msg_uncomplete);
+    return 1;
+  }
+  else if(di_checkbox == true)
+  {
+    date_issue = 0;
+  }
 
   // заполняем данные формы
   var rcard = new FormData();
-  rcard.append('defect', defect);
   rcard.append('work_done', work_done);
   rcard.append('rcard_id', rcard_id);
+  rcard.append('date_issue', date_issue);
   rcard.append('fn', 'write_rcard');
+
 
   // готовим ajax запрос
   var xhr = new XMLHttpRequest();
@@ -63,10 +80,12 @@ function send_rcard(f) {
       {
         arr_result = JSON.parse(xhr.responseText);
         rcard_id = arr_result['rcard_id'];
-        defect = arr_result['defect'];
+        date_issue = arr_result['date_issue'];
         work_done = arr_result['work_done'];
+        href_font = arr_result['href_font'];
 
-        document.getElementById('defect_'+rcard_id).innerHTML = defect;
+        document.getElementById('a'+rcard_id).className = href_font;
+        document.getElementById('date_issue_'+rcard_id).innerHTML = date_issue;
         document.getElementById('work_done_'+rcard_id).innerHTML = work_done;
 
         close_rcard(rcard_id);
@@ -83,6 +102,7 @@ function send_rcard(f) {
 
 // --------------------------------------
 
+// добавление новой карточки
 function open_new_rcard() {
   var rcard = new FormData();
   rcard.append('fn', 'open_rcard');
@@ -115,7 +135,6 @@ function open_new_rcard_done(text){
 function send_new_rcard(f) {
   $('.error').remove();
 
-  var msg_uncomplete = '<div class="error"><b>Не все поля заполнены</b></div>';
   var inv_num = document.forms[f].elements['inv_num'].value;
   var equipment_id = document.forms[f].elements['equipment_id'].value;
   var otdel = document.forms[f].elements['otdel'].value;
@@ -128,7 +147,7 @@ function send_new_rcard(f) {
   || defect == ''
   || date_accept == '')
   {
-    fn_msg_error(msg_uncomplete);
+    fn_msg_error('rcard-frame', msg_uncomplete);
     return 1;
   }
 
