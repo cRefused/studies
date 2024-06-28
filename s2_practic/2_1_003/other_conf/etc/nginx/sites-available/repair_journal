@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name YOUR_DOMAIN_OR_IP;
+    server_name 127.0.0.1; ### YOUR_DOMAIN_OR_IP ###
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
@@ -15,4 +15,4 @@ server {
         include proxy_params;
         proxy_pass http://unix:/run/gunicorn.sock;
     }
-} 
+}
