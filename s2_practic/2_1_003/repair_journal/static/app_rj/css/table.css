@@ -1,0 +1,107 @@
+table {
+  background: #fff;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border-color: #cdcdcd;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+tr.hover:hover td {
+  background: #f5f5f5;
+}
+
+table.main {
+  border-width: 0px 0px 1px 0px;
+  line-height: 20px;
+  font-size: 13px;
+  color: #333;
+}
+
+thead.main {
+  border-bottom: 2px solid #dedede;
+  vertical-align: bottom;
+}
+
+th.main {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  vertical-align: middle;
+}
+
+th.center, td.center {
+  text-align: center;
+}
+
+td.main {
+  max-width: 325px;
+  padding: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: middle;
+}
+
+td.min_v1, th.min_v1{
+  min-width: 100px;
+}
+
+td.min_v2, th.min_v2{
+  min-width: 200px;
+}
+
+td.max_v1, th.max_v1{
+  max-width: 350px;
+}
+
+td.max_v2, th.max_v1{
+  max-width: 550px;
+}
+
+td.filelst {
+  min-width: 150px;
+  max-width: 230px;
+  font-size: 12px;
+}
+
+td.main, th.main {
+  border-width: 0px 0px 1px 0px;
+}
+
+table.nobrd, td.nobrd, th.nobrd {
+  border-width: 0px 0px 0px 0px;
+}
+
+/*
+tr.rtcolor:nth-child(odd) {
+background: #f9f9f9;
+}
+*/
+
+/*
+tr.rtcolor:nth-child(even) {
+background: #f9f9f9;
+}
+*/
+
+/*
+@keyframes glowing {
+  0% { background-color: inherit; }
+  50% { background-color: #ffffe1; }
+  100% { background-color: inherit;}
+}
+*/
+
+tr:target {
+  /*  animation: glowing  1s 1; */
+  /* background-color: #ffffe1; */
+  border-left: 2px solid #337ab7;
+}
+
