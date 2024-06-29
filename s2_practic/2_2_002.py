@@ -34,8 +34,8 @@ while(run):
     print(msg_error)
     continue
 
-# если "0" - выходим
-# если не попали в диапазон, шо поделать...
+  # если "0" - выходим
+  # если не попали в диапазон, шо поделать...
   if(user_num == 0):
     run = 0
     continue
@@ -43,7 +43,7 @@ while(run):
     print(msg_error)
     continue
 
-# Очень холодно / Холодно / Тепло
+  # Очень холодно / Холодно / Тепло
   if(user_num < rnd_num):
     if(user_num <= rnd_num / 3):
       msg = "Очень холодно, надо больше"
