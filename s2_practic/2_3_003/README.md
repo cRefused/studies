@@ -1,4 +1,4 @@
-Кейс-задача № 3
+### Кейс-задача № 3 ###
 
 Тестировалось в окружениях:
 * ОС: Astra Linux 1.7
@@ -10,6 +10,6 @@
 
 В каталоге "other_conf" лежит конфиг для nginx и юнит файл для gunicorn. Конфиги настроены на каталог проекта, лежащий в "/var/www/django/"
 
-P.S.\
+P.S.
 * В "repair_journal/proj_rj/settings.py" проставить свои "ALLOWED_HOSTS"
 * В "other_conf/etc/nginx/sites-available/repair_journal" проставить свой "server_name"
