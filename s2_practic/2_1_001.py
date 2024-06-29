@@ -27,4 +27,4 @@ while(run):
     continue
 
   fl = factorial(num)
-  print("Факториал числа %s = %s" %(num, fl))
+  print("Факториал числа %d = %d" %(num, fl))
