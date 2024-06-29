@@ -7,9 +7,9 @@ server {
         alias /var/www/django/repair_journal/static/;
     }
 
-    location /media/ {
-        alias /var/www/django/repair_journal/media/;
-    }
+#    location /media/ {
+#        alias /var/www/django/repair_journal/media/;
+#    }
 
     location / {
         include proxy_params;
