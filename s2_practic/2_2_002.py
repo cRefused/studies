@@ -19,7 +19,7 @@ msg = ''
 msg_cnt_attempts = ''
 msg_error = ''
 
-rnd_num = randint(min_rnd, max_rnd) # гененим число
+rnd_num = randint(min_rnd, max_rnd) # генерим число
 
 while(run):
   user_num = input("Введите число от %d до %d (для выхода введите 0): " %(min_rnd, max_rnd))
