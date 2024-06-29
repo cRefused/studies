@@ -1,13 +1,12 @@
 Кейс-задача № 3
 
 Тестировалось в окружениях:
-> ОС: Astra Linux 1.7\
-> Версия Python: 3.7\
-> Версия Django: 1.11\
-
-> ОС: Devuan GNU/Linux 4\
-> Версия Python: 3.9\
-> Версия Django: 4.2\
+* ОС: Astra Linux 1.7\
+ * Версия Python: 3.7\
+ * Версия Django: 1.11\
+* ОС: Devuan GNU/Linux 4\
+ * Версия Python: 3.9\
+ * Версия Django: 4.2\
 
 В каталоге "other_conf" лежит конфиг для nginx и юнит файл для gunicorn. Конфиги настроены на каталог проекта, лежащий в "/var/www/django/"
 
