@@ -15,7 +15,7 @@ while(run):
 
   try:
     num = int(num)
-  except:
+  except ValueError:
     print("Некорректные данные")
     continue
 
