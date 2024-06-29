@@ -64,7 +64,7 @@ while(run):
       run = 0
 
   # если попытки закончились, заканчиваем игру
-  if(cnt_attempts < 1):
+  if(cnt_attempts < 1 and run != 0):
     run = 0
     msg = "Вы исчерпали все попытки\nЗагаданое число было: %s" %(rnd_num)
     print(msg)
