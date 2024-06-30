@@ -9,6 +9,7 @@ if int(__import__('sys').version[0]) < 3:
 
 run = 1 # флаг выполнения
 cnt_attempts = 10 # кол-во попыток
+grad_hint = 10 # градация подсказок
 
 # диапазон
 min_rnd = 1
@@ -45,16 +46,16 @@ while(run):
 
   # Очень холодно / Холодно / Тепло
   if(user_num < rnd_num):
-    if(user_num <= rnd_num / 3):
+    if(user_num <= (rnd_num - grad_hint * 3)):
       msg = "Очень холодно, надо больше"
-    elif(user_num <= (rnd_num * 2) / 3):
+    elif(user_num <= (rnd_num - grad_hint * 2)):
       msg = "Холодно, надо больше"
     else:
       msg = "Тепло, надо больше"
   elif(user_num > rnd_num):
-    if(user_num >= rnd_num + ((rnd_num * 2) / 3)):
+    if(user_num >= (rnd_num + grad_hint * 3)):
       msg = "Очень холодно, надо меньше"
-    elif(user_num >= rnd_num + (rnd_num / 3)):
+    elif(user_num >= (rnd_num + grad_hint * 2)):
       msg = "Холодно, надо меньше"
     else:
       msg = "Тепло, надо меньше"
