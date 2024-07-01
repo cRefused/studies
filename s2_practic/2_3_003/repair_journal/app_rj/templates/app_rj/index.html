@@ -28,7 +28,7 @@
   {% for i in tech_db_all %}
     <tr class="rtcolor hover" id="tr_rcard_{{i.id}}">
       <td class="main">
-        <a class="{{i.href_font}}" href="javascript:void(0); open_rcard({{i.id}});" id="a{{i.id}}">
+        <a class="{{i.href_font}}" href="javascript:void(0); onclick=fn_remove_class('tr_rcard_{{i.id}}', 'blink'); open_rcard({{i.id}});" id="a{{i.id}}">
           {{i.inv_num}}
         </a>
       </td>

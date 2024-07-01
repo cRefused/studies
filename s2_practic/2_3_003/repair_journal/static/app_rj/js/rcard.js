@@ -1,20 +1,31 @@
 var msg_uncomplete = '<div class="error"><b>Не все поля заполнены</b></div>';
 
-function fn_msg_error(eid, msg) {
+function fn_msg_error(eid, msg)
+{
   document.getElementById(eid).insertAdjacentHTML('afterbegin', msg);
 }
 
-function close_rcard(rcard_id){
+function close_rcard(rcard_id)
+{
   let elem = 'rnf_'+rcard_id;
-  if(document.getElementById(elem)){
+  if(document.getElementById(elem))
+  {
     document.getElementById(elem).remove();
+  }
+  if(window.parent.document.getElementById('tr_rcard_'+rcard_id))
+  {
+    if(!window.parent.document.getElementById('tr_rcard_'+rcard_id).classList.contains("blink"))
+    {
+      window.parent.document.getElementById('tr_rcard_'+rcard_id).classList.add("blink");
+    }
   }
 }
 
 // ---------------------------------------------------------
 
 // просмотр карточки
-function open_rcard(rcard_id) {
+function open_rcard(rcard_id)
+{
   var rcard = new FormData();
   rcard.append('rcard_id', rcard_id);
   rcard.append('fn', 'open_rcard');
@@ -22,13 +33,15 @@ function open_rcard(rcard_id) {
   // готовим ajax запрос
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'fn/get_rcard', true);
-  xhr.onreadystatechange = function () {
+  xhr.onreadystatechange = function ()
+  {
     if (xhr.readyState == 4)
     {
       if (xhr.status == 200)
       {
           open_rcard_done(rcard_id, xhr.responseText);
-      } else
+      }
+      else
       {
         // произошла ошибка
         fn_error(xhr.status);
@@ -39,13 +52,15 @@ function open_rcard(rcard_id) {
   xhr.send(rcard);
 }
 
-function open_rcard_done(rcard_id, text){
+function open_rcard_done(rcard_id, text)
+{
   let msg_container = '<div class="frame-blocker" id="rnf_'+rcard_id+'"><div class="frame-blocker-close" onClick="close_rcard(\''+rcard_id+'\')"></div>'+text+'</div>';
   document.getElementById('main').insertAdjacentHTML('afterbegin', msg_container);
 }
 
 // редактирование карточки
-function send_rcard(f) {
+function send_rcard(f)
+{
   $('.error').remove();
   var work_done = document.forms[f].elements['work_done'].value;
   var rcard_id = document.forms[f].elements['rcard_id'].value;
@@ -89,7 +104,8 @@ function send_rcard(f) {
         document.getElementById('work_done_'+rcard_id).innerHTML = work_done;
 
         close_rcard(rcard_id);
-      } else
+      }
+      else
       {
         // произошла ошибка
         console.log(xhr.status);
@@ -103,20 +119,23 @@ function send_rcard(f) {
 // --------------------------------------
 
 // добавление новой карточки
-function open_new_rcard() {
+function open_new_rcard()
+{
   var rcard = new FormData();
   rcard.append('fn', 'open_rcard');
 
   // готовим ajax запрос
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'fn/new_rcard', true);
-  xhr.onreadystatechange = function () {
+  xhr.onreadystatechange = function ()
+  {
     if (xhr.readyState == 4)
     {
       if (xhr.status == 200)
       {
           open_new_rcard_done(xhr.responseText);
-      } else
+      }
+      else
       {
         // произошла ошибка
         fn_error(xhr.status);
@@ -126,13 +145,15 @@ function open_new_rcard() {
   };
   xhr.send(rcard);
 }
-function open_new_rcard_done(text){
+function open_new_rcard_done(text)
+{
   let msg_container = '<div class="frame-blocker" id="rnf_0"><div class="frame-blocker-close" onClick="close_rcard(\'0\')"></div>'+text+'</div>';
   document.getElementById('main').insertAdjacentHTML('afterbegin', msg_container);
 }
 
 // добавление новой карточки
-function send_new_rcard(f) {
+function send_new_rcard(f)
+{
   $('.error').remove();
 
   var inv_num = document.forms[f].elements['inv_num'].value;
@@ -163,14 +184,16 @@ function send_new_rcard(f) {
   // готовим ajax запрос
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'fn/new_rcard', true);
-  xhr.onreadystatechange = function () {
+  xhr.onreadystatechange = function ()
+  {
     if (xhr.readyState == 4)
     {
       if (xhr.status == 200)
       {
         document.getElementById('list_rcard').insertAdjacentHTML('afterbegin', xhr.responseText);
         close_rcard(0);
-      } else
+      }
+      else
       {
         // произошла ошибка
         console.log(xhr.status);
@@ -183,6 +206,7 @@ function send_new_rcard(f) {
 
 // ---
 
-function fn_error(text){
+function fn_error(text)
+{
   console.log(text);
 }
