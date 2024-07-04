@@ -1,4 +1,4 @@
-var msg_uncomplete = '<div class="error"><b>Не все поля заполнены</b></div>';
+var msg_uncomplete = '<div class="error"><b>Заполнены не все поля</b></div>';
 
 function fn_msg_error(eid, msg)
 {

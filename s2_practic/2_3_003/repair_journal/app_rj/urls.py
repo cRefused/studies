@@ -5,9 +5,11 @@ from django.urls import path
 
 # My sites
 from .views import get_index, get_rcard, new_rcard
+from .views_login import get_login
 
 urlpatterns = [
     path('', get_index, name='index'),
+    path('login', get_login, name='login'),
     path('fn/get_rcard', get_rcard),
     path('fn/new_rcard', new_rcard),
 ]
