@@ -1,0 +1,28 @@
+/* Общие настройки */
+body {
+    /* Префиксы для кроссбраузерности */
+    -webkit-background-color: #F0F8FF; /* Поддержка WebKit-браузеров (Safari, Chrome) */
+    -moz-background-color: #F0F8FF;   /* Поддержка Mozilla Firefox */
+    -ms-background-color: #F0F8FF;    /* Поддержка Microsoft Edge / IE */
+    -o-background-color: #F0F8FF;     /* Поддержка старых версий Opera */
+    background-color: #F0F8FF;         /* Стандартное значение для всех современных браузеров */
+
+    color: #00008B;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Настройки для заголовка h1 */
+h1 {
+    font-weight: bold; /* Жирность шрифта */
+}
+
+/* Настройка ссылок */
+a {
+    text-decoration: underline; /* Подчеркнутый текст ссылки */
+}
+
+/* Настройка изображений */
+img {
+    width: 300px; /* Ширина изображения */
+}
